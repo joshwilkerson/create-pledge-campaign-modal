@@ -7,7 +7,6 @@ import {
   ModalFooter,
   ModalBody,
   ModalWrapper,
-  SuccessMessage,
   Box
 } from "./elements";
 
