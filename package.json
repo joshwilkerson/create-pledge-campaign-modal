@@ -1,7 +1,7 @@
 {
   "name": "create-new-pledge-campaign-modal",
   "version": "1.0.0",
-  "description": "",
+  "description": "scaffolded modal for UX/UI flow ",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
