@@ -13,6 +13,7 @@ const StyledButton = styled.button`
   border-radius: 3px;
   outline: none;
   font-size: 0.9em;
+  overflow: hidden;
 
   &:hover {
     opacity: 0.9;

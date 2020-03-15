@@ -9,6 +9,7 @@ import TextInputComponet from "./elements/text-input";
 import CheckboxComponet from "./elements/checkbox";
 import CampaignStatusComponet from "./elements/campaign-status";
 import BoxComponet from "./elements/box";
+import InlineConfirmButtonComponent from "./elements/inline-confirm-button";
 
 export const Button = ({ ...props }) => <ButtonComponet {...props} />;
 export const ModalFooter = ({ ...props }) => <ModalFooterComponet {...props} />;
@@ -24,5 +25,8 @@ export const CampaignStatus = ({ ...props }) => (
   <CampaignStatusComponet {...props} />
 );
 export const Box = ({ ...props }) => <BoxComponet {...props} />;
+export const InlineConfirmButton = ({ ...props }) => (
+  <InlineConfirmButtonComponent {...props} />
+);
 
 export default exports;

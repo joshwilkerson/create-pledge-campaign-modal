@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import colors from "../colors";
-import { Button } from "../elements";
+import { Button, InlineConfirmButton } from "../elements";
 
 const StyledModalFooter = styled.div`
   display: flex;
@@ -22,9 +22,13 @@ export default function ModalFooter({
 }) {
   return (
     <StyledModalFooter>
-      <Button onClick={resetSteps} disabled={currentStep === 0}>
-        Reset
-      </Button>
+      <InlineConfirmButton
+        onClick={resetSteps}
+        disabled={currentStep === 0}
+        text="Cancel"
+        confirmText="Are you sure?"
+        confirmOptions={["yes", "no"]}
+      />
       <div>
         <Button
           onClick={handleDecreaseStep}
