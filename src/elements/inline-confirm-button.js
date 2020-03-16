@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
+import colors from "../colors";
 import { Button } from "../elements";
 
 const InlineConfirmDefault = styled.div`
@@ -55,9 +56,14 @@ export default function InlineConfirmButton({
     setIsConfirming(false);
   };
 
+  const ConfirmWrapperStyles = {
+    opacity: isConfirming && "1",
+    backgroundColor: isConfirming && colors.ruby
+  };
+
   return (
     <div ref={node}>
-      <Button style={{ opacity: isConfirming && "1" }} disabled={disabled}>
+      <Button style={ConfirmWrapperStyles} disabled={disabled}>
         <InlineConfirmDefault
           show={isConfirming}
           onClick={() => !disabled && setIsConfirming(true)}

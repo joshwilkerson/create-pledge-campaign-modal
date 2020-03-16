@@ -103,7 +103,11 @@ export default function Select({
     >
       {showPlaceholder && <option value="">{placeholder}</option>}
       {options.map(option => {
-        return <option value={option.value}>{option.label}</option>;
+        return (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        );
       })}
     </StyledSelect>
   );

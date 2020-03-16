@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
-import Checkmark from "./checkmark";
 import colors from "../colors";
+import Checkmark from "../assets/checkmark";
 
 const ProgressTrackerContainer = styled.div`
   display: flex;

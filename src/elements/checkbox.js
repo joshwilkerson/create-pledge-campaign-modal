@@ -93,7 +93,7 @@ export default function Checkbox({
         icon={iconDataUri}
         {...props}
       />
-      <label for={id}>{label}</label>
+      <label htmlFor={id}>{label}</label>
     </Fragment>
   );
 }

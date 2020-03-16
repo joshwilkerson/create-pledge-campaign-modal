@@ -21,8 +21,14 @@ const StepFourContent = ({ goal, setGoal }) => {
         If you're asking donors to make pledges for the purpose of reaching a
         known, organization-wide goal, enter that goal here. During the donation
         period of this campaign, the running total of donations will be tracked
-        against this number. Note: This is a goal for donations received – not
-        the total amount of pledges.
+        against this number.
+      </p>
+
+      <p>
+        <em>
+          Note: This is a goal for donations received – not the total amount of
+          pledges.
+        </em>
       </p>
 
       <Checkbox
@@ -33,7 +39,7 @@ const StepFourContent = ({ goal, setGoal }) => {
 
       <TextInput
         onChange={e => setGoal(e.target.value)}
-        value={goal}
+        value={goalEnabled ? goal : ""}
         disabled={!goalEnabled}
         style={{ marginTop: 8 }}
       />

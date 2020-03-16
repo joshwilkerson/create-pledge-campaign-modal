@@ -1,14 +1,13 @@
 import React, { useState, Fragment } from "react";
-import ProgressTracker from "./elements/progress-tracker";
+import ProgressTracker from "./blocks/progress-tracker";
 import formatDate from "format-date";
 
-import {
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalWrapper,
-  Box
-} from "./elements";
+import { Box } from "./elements";
+
+import ModalWrapper from "./blocks/modal-wrapper";
+import ModalHeader from "./blocks/modal-header";
+import ModalBody from "./blocks/modal-body";
+import ModalFooter from "./blocks/modal-footer";
 
 import StepOneContent from "./modal-content/step-1";
 import StepTwoContent from "./modal-content/step-2";

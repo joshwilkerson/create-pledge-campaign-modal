@@ -23,6 +23,12 @@ const StyledModalBody = styled.div`
   p {
     line-height: 1.4em;
     color: ${colors.gray_700};
+    font-size: 16px;
+
+    em {
+      font-style: italic;
+      color: ${colors.gray_700};
+    }
   }
 `;
 

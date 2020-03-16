@@ -40,10 +40,10 @@ const iconInactiveColor = colors.gray_600;
 export default function CampaignStatus({ status }) {
   return (
     <StatusIconsWrapper>
-      <StatusIcon active={status === "active"}>
+      <StatusIcon active={status === "current"}>
         <IconActive
           size={100}
-          fill={status === "active" ? iconActiveColor : iconInactiveColor}
+          fill={status === "current" ? iconActiveColor : iconInactiveColor}
         />
         <div>
           <h3>Current Campaign</h3>
