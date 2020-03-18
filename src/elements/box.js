@@ -34,9 +34,9 @@ const StyledBox = styled.div`
   }
 
   p {
-    color: ${props => props.theme.textColor};
+    color: ${props => props.theme.textColor} !important;
     margin-top: 0;
-    font-size: 14px;
+    font-size: 14px !important;
   }
 
   & *:last-child {
