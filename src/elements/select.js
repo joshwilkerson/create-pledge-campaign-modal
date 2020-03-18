@@ -10,7 +10,7 @@ const IconDownChevron = ({ fill }) => {
       x="0px"
       y="0px"
       viewBox="0 0 640 640"
-      enable-background="new 0 0 640 640"
+      enableBackground="new 0 0 640 640"
     >
       <path
         fill={fill}
