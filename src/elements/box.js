@@ -22,25 +22,27 @@ const themes = {
 };
 
 const StyledBox = styled.div`
-  display: block;
-  background: ${props => props.theme.bgColor};
-  color: ${props => props.theme.textColor};
-  padding: ${props => props.padding}em;
-  margin: 0.5em 0;
-  border-radius: 4px;
+  && {
+    display: block;
+    background: ${props => props.theme.bgColor};
+    color: ${props => props.theme.textColor};
+    padding: ${props => props.padding}em;
+    margin: 0.5em 0;
+    border-radius: 4px;
 
-  h2 {
-    font-weight: bold;
-  }
+    h2 {
+      font-weight: bold;
+    }
 
-  p {
-    color: ${props => props.theme.textColor} !important;
-    margin-top: 0;
-    font-size: 14px !important;
-  }
+    p {
+      color: ${props => props.theme.textColor};
+      margin-top: 0;
+      font-size: 14px;
+    }
 
-  & *:last-child {
-    margin-bottom: 0;
+    & *:last-child {
+      margin-bottom: 0;
+    }
   }
 `;
 
