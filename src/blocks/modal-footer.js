@@ -25,7 +25,8 @@ export default function ModalFooter({
       <InlineConfirmButton
         onClick={resetSteps}
         disabled={currentStep === 0}
-        text="Cancel"
+        theme="secondary"
+        text="Reset"
         confirmText="Are you sure?"
         confirmOptions={["yes", "no"]}
       />
@@ -41,7 +42,7 @@ export default function ModalFooter({
           onClick={
             currentStep !== totalSteps - 1 ? handleIncreaseStep : handleSave
           }
-          hightlighted={currentStep === totalSteps - 1}
+          theme={currentStep === totalSteps - 1 ? "highlighted" : "primary"}
         >
           {currentStep !== totalSteps - 1 ? "Next" : "Create Campaign"}
         </Button>

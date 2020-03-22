@@ -27,7 +27,9 @@ export default function InlineConfirmButton({
   confirmText = "Are you sure?",
   confirmOptions,
   onClick,
-  disabled = false
+  disabled = false,
+  theme = "primary",
+  ...props
 }) {
   const [isConfirming, setIsConfirming] = useState(false);
   const node = useRef();
@@ -56,14 +58,9 @@ export default function InlineConfirmButton({
     setIsConfirming(false);
   };
 
-  const ConfirmWrapperStyles = {
-    opacity: isConfirming && "1",
-    backgroundColor: isConfirming && colors.ruby
-  };
-
   return (
     <div ref={node}>
-      <Button style={ConfirmWrapperStyles} disabled={disabled}>
+      <Button disabled={disabled} theme={isConfirming ? "danger" : theme}>
         <InlineConfirmDefault
           show={isConfirming}
           onClick={() => !disabled && setIsConfirming(true)}
