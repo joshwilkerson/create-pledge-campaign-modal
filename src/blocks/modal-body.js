@@ -12,18 +12,21 @@ const StyledModalBody = styled.div`
     font-size: 28px;
     font-weight: 500;
     margin: 0 0 0.25em 0;
+    color: ${colors.topaz};
   }
 
   h2 {
     font-size: 22px;
-    font-weight: 400;
+    font-weight: 300;
     margin: 0 0 0.25em 0;
+    color: ${colors.gray_700};
   }
 
   p {
     line-height: 1.4em;
-    color: ${colors.gray_700};
+    color: ${colors.gray_800};
     font-size: 16px;
+    margin: 0 0 0.5em 0;
 
     em {
       font-style: italic;

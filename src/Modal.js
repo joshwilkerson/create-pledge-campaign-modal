@@ -15,11 +15,13 @@ import StepThreeContent from "./modal-content/step-3";
 import StepFourContent from "./modal-content/step-4";
 
 export default function Modal() {
+  const debug = true;
+
   const steps = [
     "Name & Description",
     "Donation Period",
     "Target Fund",
-    "Goal (optional)"
+    "Campaign Options"
   ];
   const totalSteps = steps.length;
 
@@ -31,6 +33,7 @@ export default function Modal() {
   const [endDate, setEndDate] = useState(null);
   const [fund, setFund] = useState("");
   const [goal, setGoal] = useState("");
+  const [displayProgress, setDisplayProgress] = useState(true);
 
   const handleIncreaseStep = () => {
     if (currentStep < totalSteps) {
@@ -83,7 +86,14 @@ export default function Modal() {
       case 2:
         return <StepThreeContent fund={fund} setFund={setFund} />;
       case 3:
-        return <StepFourContent goal={goal} setGoal={setGoal} />;
+        return (
+          <StepFourContent
+            goal={goal}
+            setGoal={setGoal}
+            displayProgress={displayProgress}
+            setDisplayProgress={setDisplayProgress}
+          />
+        );
       default:
         return null;
     }
@@ -115,20 +125,25 @@ export default function Modal() {
           totalSteps={totalSteps}
         />
       </ModalWrapper>
-      <div style={{ padding: 20 }}>
-        <div>current step: {currentStep + 1}</div>
-        <div>campaign name: {campaignName}</div>
-        <div>
-          campaign start date:{" "}
-          {startDate !== null && formatDate("{month}/{day}/{year}", startDate)}
+
+      {debug && (
+        <div style={{ padding: 20 }}>
+          <div>current step: {currentStep + 1}</div>
+          <div>campaign name: {campaignName}</div>
+          <div>
+            campaign start date:{" "}
+            {startDate !== null &&
+              formatDate("{month}/{day}/{year}", startDate)}
+          </div>
+          <div>
+            campaign end date:{" "}
+            {endDate !== null && formatDate("{month}/{day}/{year}", endDate)}
+          </div>
+          <div>fund: {fund}</div>
+          <div>goal: {goal ? goal : "no goal"}</div>
+          <div>show campaign goal in CCW: {displayProgress ? "yes" : "no"}</div>
         </div>
-        <div>
-          campaign end date:{" "}
-          {endDate !== null && formatDate("{month}/{day}/{year}", endDate)}
-        </div>
-        <div>fund: {fund}</div>
-        <div>goal: {goal}</div>
-      </div>
+      )}
     </Fragment>
   );
 }

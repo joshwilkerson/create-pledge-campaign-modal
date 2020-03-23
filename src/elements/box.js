@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import colors from "../colors";
 
-const themes = {
+const BoxThemes = {
   default: {
     bgColor: colors.gray_300,
     textColor: colors.gray_700
@@ -53,7 +53,7 @@ export default function Box({
   ...props
 }) {
   return (
-    <StyledBox padding={padding} theme={themes[theme]} {...props}>
+    <StyledBox padding={padding} theme={BoxThemes[theme]} {...props}>
       {children}
     </StyledBox>
   );
