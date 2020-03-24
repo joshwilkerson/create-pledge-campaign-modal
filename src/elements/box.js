@@ -32,6 +32,7 @@ const StyledBox = styled.div`
 
     h2 {
       font-weight: bold;
+      color: ${props => props.theme.textColor};
     }
 
     p {
