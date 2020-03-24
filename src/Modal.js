@@ -29,6 +29,7 @@ export default function Modal() {
   const [showSuccess, setShowSuccess] = useState(false);
 
   const [campaignName, setCampaignName] = useState("");
+  const [campaignDescription, setCampaignDescription] = useState("");
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [fund, setFund] = useState("");
@@ -72,6 +73,8 @@ export default function Modal() {
           <StepOneContent
             campaignName={campaignName}
             setCampaignName={setCampaignName}
+            campaignDescription={campaignDescription}
+            setCampaignDescription={setCampaignDescription}
           />
         );
       case 1:
@@ -130,6 +133,7 @@ export default function Modal() {
         <div style={{ padding: 20 }}>
           <div>current step: {currentStep + 1}</div>
           <div>campaign name: {campaignName}</div>
+          <div>campaign description: {campaignDescription}</div>
           <div>
             campaign start date:{" "}
             {startDate !== null &&
