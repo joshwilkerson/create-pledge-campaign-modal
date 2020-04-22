@@ -1,70 +1,70 @@
-import React, { useState, Fragment } from "react";
-import ProgressTracker from "./blocks/progress-tracker";
-import formatDate from "format-date";
+import React, { useState, Fragment } from 'react'
+import ProgressTracker from './blocks/progress-tracker'
+import formatDate from 'format-date'
 
-import { Box } from "./elements";
+import { Box } from './elements'
 
-import ModalWrapper from "./blocks/modal-wrapper";
-import ModalHeader from "./blocks/modal-header";
-import ModalBody from "./blocks/modal-body";
-import ModalFooter from "./blocks/modal-footer";
+import ModalWrapper from './blocks/modal-wrapper'
+import ModalHeader from './blocks/modal-header'
+import ModalBody from './blocks/modal-body'
+import ModalFooter from './blocks/modal-footer'
 
-import StepOneContent from "./modal-content/step-1";
-import StepTwoContent from "./modal-content/step-2";
-import StepThreeContent from "./modal-content/step-3";
-import StepFourContent from "./modal-content/step-4";
+import StepOneContent from './modal-content/step-1'
+import StepTwoContent from './modal-content/step-2'
+import StepThreeContent from './modal-content/step-3'
+import StepFourContent from './modal-content/step-4'
 
 export default function Modal() {
-  const debug = true;
+  const debug = true
 
   const steps = [
-    "Name & Description",
-    "Donation Period",
-    "Target Fund",
-    "Campaign Options"
-  ];
-  const totalSteps = steps.length;
+    'Name & Description',
+    'Donation Period',
+    'Target Fund',
+    'Campaign Options',
+  ]
+  const totalSteps = steps.length
 
-  const [currentStep, setCurrentStep] = useState(0);
-  const [showSuccess, setShowSuccess] = useState(false);
+  const [currentStep, setCurrentStep] = useState(0)
+  const [showSuccess, setShowSuccess] = useState(false)
 
-  const [campaignName, setCampaignName] = useState("");
-  const [campaignDescription, setCampaignDescription] = useState("");
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
-  const [fund, setFund] = useState("");
-  const [goal, setGoal] = useState("");
-  const [displayProgress, setDisplayProgress] = useState(true);
+  const [campaignName, setCampaignName] = useState('')
+  const [campaignDescription, setCampaignDescription] = useState('')
+  const [startDate, setStartDate] = useState(null)
+  const [endDate, setEndDate] = useState(null)
+  const [fund, setFund] = useState('')
+  const [goal, setGoal] = useState('')
+  const [displayProgress, setDisplayProgress] = useState(true)
 
   const handleIncreaseStep = () => {
     if (currentStep < totalSteps) {
-      setCurrentStep(currentStep + 1);
+      setCurrentStep(currentStep + 1)
     } else {
-      return null;
+      return null
     }
-  };
+  }
 
   const handleDecreaseStep = () => {
     if (currentStep > 0) {
-      setCurrentStep(currentStep - 1);
-      setShowSuccess(false);
+      setCurrentStep(currentStep - 1)
+      setShowSuccess(false)
     } else {
-      return null;
+      return null
     }
-  };
+  }
 
   const resetSteps = () => {
-    setCurrentStep(0);
-    setShowSuccess(false);
-    setFund("");
-    setStartDate(null);
-    setEndDate(null);
-    setCampaignName("");
-  };
+    setCurrentStep(0)
+    setShowSuccess(false)
+    setFund('')
+    setStartDate(null)
+    setEndDate(null)
+    setCampaignName('')
+  }
 
   const handleSave = () => {
-    setShowSuccess(true);
-  };
+    setShowSuccess(true)
+  }
 
   const getStepContent = currentStep => {
     switch (currentStep) {
@@ -76,7 +76,7 @@ export default function Modal() {
             campaignDescription={campaignDescription}
             setCampaignDescription={setCampaignDescription}
           />
-        );
+        )
       case 1:
         return (
           <StepTwoContent
@@ -85,9 +85,9 @@ export default function Modal() {
             endDate={endDate}
             setEndDate={setEndDate}
           />
-        );
+        )
       case 2:
-        return <StepThreeContent fund={fund} setFund={setFund} />;
+        return <StepThreeContent fund={fund} setFund={setFund} />
       case 3:
         return (
           <StepFourContent
@@ -96,18 +96,23 @@ export default function Modal() {
             displayProgress={displayProgress}
             setDisplayProgress={setDisplayProgress}
           />
-        );
+        )
       default:
-        return null;
+        return null
     }
-  };
+  }
 
   return (
     <Fragment>
       <ModalWrapper>
         <ModalHeader title="Create New Pledge Campaign" />
 
-        <ProgressTracker currentStep={currentStep} steps={steps} />
+        <ProgressTracker
+          currentStep={currentStep}
+          steps={steps}
+          dotSpacing={52}
+          style={{ width: '80%', margin: '1rem auto' }}
+        />
 
         <ModalBody>
           {getStepContent(currentStep)}
@@ -135,19 +140,19 @@ export default function Modal() {
           <div>campaign name: {campaignName}</div>
           <div>campaign description: {campaignDescription}</div>
           <div>
-            campaign start date:{" "}
+            campaign start date:{' '}
             {startDate !== null &&
-              formatDate("{month}/{day}/{year}", startDate)}
+              formatDate('{month}/{day}/{year}', startDate)}
           </div>
           <div>
-            campaign end date:{" "}
-            {endDate !== null && formatDate("{month}/{day}/{year}", endDate)}
+            campaign end date:{' '}
+            {endDate !== null && formatDate('{month}/{day}/{year}', endDate)}
           </div>
           <div>fund: {fund}</div>
-          <div>goal: {goal ? goal : "no goal"}</div>
-          <div>show campaign goal in CCW: {displayProgress ? "yes" : "no"}</div>
+          <div>goal: {goal ? goal : 'no goal'}</div>
+          <div>show campaign goal in CCW: {displayProgress ? 'yes' : 'no'}</div>
         </div>
       )}
     </Fragment>
-  );
+  )
 }
