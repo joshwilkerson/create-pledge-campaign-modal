@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import colors from "../colors";
-import Checkmark from "../assets/checkmark";
+import React from 'react'
+import styled from 'styled-components'
+import colors from '../colors'
+import Checkmark from '../assets/checkmark'
 
 const ProgressTrackerContainer = styled.div`
   display: flex;
@@ -9,7 +9,7 @@ const ProgressTrackerContainer = styled.div`
   align-items: center;
   position: relative;
   padding: 0;
-`;
+`
 
 const ProgressBar = styled.div`
   display: block;
@@ -29,7 +29,7 @@ const ProgressBar = styled.div`
     background: ${colors.emerald};
     transition: 0.25s ease all 0.05s;
   }
-`;
+`
 
 const ProgressSteps = styled.div`
   display: flex;
@@ -38,7 +38,7 @@ const ProgressSteps = styled.div`
   justify-content: space-between;
   box-sizing: border-box;
   position: relative;
-`;
+`
 
 const StepMarker = styled.div`
   display: flex;
@@ -56,7 +56,7 @@ const StepMarker = styled.div`
   &:last-child {
     margin-right: 0;
   }
-`;
+`
 
 const StepMarkerDot = styled.div`
   display: flex;
@@ -66,10 +66,10 @@ const StepMarkerDot = styled.div`
   height: ${props => props.dotSize}px;
   border-radius: ${props => props.dotSize}px;
   background: ${props => (props.completed ? colors.emerald : colors.gray_500)};
-  color: ${props => (props.active ? "#fff" : colors.gray_600)};
+  color: ${props => (props.active ? '#fff' : colors.gray_600)};
   font-size: ${props => props.dotSize / 2}px;
   transition: 0.1s ease all;
-`;
+`
 
 const StepMarkerLabel = styled.div`
   position: relative;
@@ -81,26 +81,25 @@ const StepMarkerLabel = styled.div`
   align-items: center;
   justify-content: center;
   margin-top: 4px;
-`;
+`
 
 export default function ProgressTracker({
   currentStep,
   steps,
   dotSize = 28,
-  dotSpacing = 32,
   ...restProps
 }) {
-  const progress = (currentStep / (steps.length - 1)) * 100;
+  const progress = (currentStep / (steps.length - 1)) * 100
 
   return (
     <ProgressTrackerContainer {...restProps}>
       <ProgressBar dotSize={dotSize} progress={progress}>
         <div />
       </ProgressBar>
-      <ProgressSteps dotSpacing={dotSpacing}>
+      <ProgressSteps>
         {steps.map((step, index) => {
           return (
-            <StepMarker key={index} dotSize={dotSize} dotSpacing={dotSpacing}>
+            <StepMarker key={index} dotSize={dotSize}>
               <StepMarkerDot
                 active={index === currentStep}
                 completed={currentStep > index - 1}
@@ -116,9 +115,9 @@ export default function ProgressTracker({
                 {step}
               </StepMarkerLabel>
             </StepMarker>
-          );
+          )
         })}
       </ProgressSteps>
     </ProgressTrackerContainer>
-  );
+  )
 }

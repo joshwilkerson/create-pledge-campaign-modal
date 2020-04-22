@@ -110,8 +110,7 @@ export default function Modal() {
         <ProgressTracker
           currentStep={currentStep}
           steps={steps}
-          dotSpacing={52}
-          style={{ width: '80%', margin: '1rem auto' }}
+          style={{ width: '70%', margin: '1rem auto' }}
         />
 
         <ModalBody>
