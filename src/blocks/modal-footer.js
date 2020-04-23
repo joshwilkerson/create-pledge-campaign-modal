@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import colors from "../colors";
-import { Button, InlineConfirmButton } from "../elements";
+import React from 'react'
+import styled from 'styled-components'
+import colors from '../colors'
+import { Button, InlineConfirmButton } from '../elements'
 
 const StyledModalFooter = styled.div`
   display: flex;
@@ -10,7 +10,7 @@ const StyledModalFooter = styled.div`
   border-top: 1px solid ${colors.gray_300};
   padding: 1em 1.25em;
   border-radius: 0 0 4px 4px;
-`;
+`
 
 export default function ModalFooter({
   handleIncreaseStep,
@@ -18,7 +18,7 @@ export default function ModalFooter({
   resetSteps,
   handleSave,
   currentStep,
-  totalSteps
+  totalSteps,
 }) {
   return (
     <StyledModalFooter>
@@ -26,10 +26,11 @@ export default function ModalFooter({
         onClick={resetSteps}
         disabled={currentStep === 0}
         theme="secondary"
-        text="Reset"
         confirmText="Are you sure?"
-        confirmOptions={["yes", "no"]}
-      />
+        confirmOptions={['yes', 'no']}
+      >
+        Cancel
+      </InlineConfirmButton>
       <div>
         <Button
           onClick={handleDecreaseStep}
@@ -42,11 +43,11 @@ export default function ModalFooter({
           onClick={
             currentStep !== totalSteps - 1 ? handleIncreaseStep : handleSave
           }
-          theme={currentStep === totalSteps - 1 ? "highlighted" : "primary"}
+          theme={currentStep === totalSteps - 1 ? 'highlighted' : 'primary'}
         >
-          {currentStep !== totalSteps - 1 ? "Next" : "Create Campaign"}
+          {currentStep !== totalSteps - 1 ? 'Next' : 'Create Campaign'}
         </Button>
       </div>
     </StyledModalFooter>
-  );
+  )
 }

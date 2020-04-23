@@ -1,36 +1,36 @@
-import React, { Fragment, useState, useEffect } from "react";
-import formatDate from "format-date";
+import React, { Fragment, useState, useEffect } from 'react'
+import formatDate from 'format-date'
 
-import CampaignStatus from "../blocks/campaign-status";
-import DonationPeriod from "../blocks/donation-period";
+import CampaignStatus from '../blocks/campaign-status'
+import DonationPeriod from '../blocks/donation-period'
 
 const StepTwoContent = ({ startDate, setStartDate, endDate, setEndDate }) => {
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState('')
 
   useEffect(() => {
-    const currentDateFormatted = formatDate("1{month}{day}", new Date());
-    const startDateFormatted = formatDate("1{month}{day}", startDate);
-    const endDateFormatted = formatDate("1{month}{day}", endDate);
+    const currentDateFormatted = formatDate('1{month}{day}', new Date())
+    const startDateFormatted = formatDate('1{month}{day}', startDate)
+    const endDateFormatted = formatDate('1{month}{day}', endDate)
 
     if (
       currentDateFormatted > startDateFormatted &&
       currentDateFormatted < endDateFormatted
     ) {
-      setStatus("current");
+      setStatus('current')
     } else if (
       currentDateFormatted < startDateFormatted &&
       currentDateFormatted < endDateFormatted
     ) {
-      setStatus("upcoming");
+      setStatus('upcoming')
     } else if (
       currentDateFormatted > startDateFormatted &&
       currentDateFormatted > endDateFormatted
     ) {
-      setStatus("concluded");
+      setStatus('concluded')
     } else {
-      setStatus("");
+      setStatus('')
     }
-  }, [startDate, endDate]);
+  }, [startDate, endDate])
 
   return (
     <Fragment>
@@ -52,7 +52,7 @@ const StepTwoContent = ({ startDate, setStartDate, endDate, setEndDate }) => {
 
       <CampaignStatus status={status} />
     </Fragment>
-  );
-};
+  )
+}
 
-export default StepTwoContent;
+export default StepTwoContent
